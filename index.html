@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhirup - Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url(/Black-Backgrounds-Photos-Download.jpg);
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #2c0000;
+            height: 80px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff4d4d;
+            font-weight: 600;
+        }
+
+        main hr {
+            border: 0;
+            background: #ff4d4d;
+            height: 2px;
+            margin: 0 8%;
+        }
+
+        .left {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 8%;
+            scroll-snap-align: start;
+        }
+
+        .firstSection {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .firstSection > div {
+            width: 45%;
+        }
+
+        .leftSection {
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
+
+        .rightSection img {
+            width: 100%;
+            max-width: 450px;
+            filter: drop-shadow(0 0 15px rgba(255, 77, 77, 0.5));
+        }
+
+        .red {
+            color: #ff4d4d;
+        }
+
+        #element {
+            color: #ff6666;
+            font-size: 3rem;
+        }
+
+        .secondSection, .thirdSection, .fourthSection, .fifthSection {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ff4d4d;
+            margin-bottom: 15px;
+        }
+
+        .text-gray {
+            color: #b3b3b3;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .about-content {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .service-item {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-item h3 {
+            color: #ff4d4d;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .project-item {
+            background-color: #2a2a2a;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            width: 100%;
+            max-width: 800px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-item h3 {
+            color: #ff4d4d;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            background-color: #333;
+            border: 2px solid #ff4d4d;
+            color: #fff;
+            border-radius: 6px;
+            font-size: 1.1rem;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background-color: #ff4d4d;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #cc0000;
+        }
+
+        footer {
+            background-color: #2c0000;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                height: auto;
+                min-height: 100vh;
+                padding: 20px 5%;
+            }
+
+            .firstSection {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .firstSection > div {
+                width: 90%;
+                margin: 15px 0;
+            }
+
+            .leftSection {
+                font-size: 2.2rem;
+            }
+
+            #element {
+                font-size: 2rem;
+            }
+
+            .rightSection img {
+                max-width: 300px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .text-gray {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                font-size: 1.1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .service-item {
+                padding: 15px;
+                font-size: 1rem;
+            }
+
+            .service-item h3 {
+                font-size: 1.2rem;
+            }
+
+            .project-item {
+                padding: 12px;
+                font-size: 1rem;
+            }
+
+            .project-item h3 {
+                font-size: 1.2rem;
+            }
+
+            .contact-form {
+                max-width: 100%;
+            }
+
+            .contact-form input, .contact-form textarea {
+                padding: 10px;
+                font-size: 1rem;
+            }
+
+            .contact-form button {
+                padding: 10px 20px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Abhirup's Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="firstSection" id="home">
+            <div class="leftSection">
+                Hi, I'm <span class="red">Abhirup</span>
+                <div>A Passionate</div>
+                <span id="element"></span>
+            </div>
+            <div class="rightSection">
+                <img src="/header_img_animat.png" alt="Profile Image">
+            </div>
+        </section>
+        <hr>
+        <section class="secondSection" id="about">
+            <span class="text-gray">Who I am</span>
+            <h1>About Me</h1>
+            <div class="about-content">
+                <p>I'm a dedicated web developer, video editor, and designer with a passion for creating impactful digital experiences. From coding responsive websites to crafting engaging videos and unique card designs, I thrive on turning ideas into reality with precision and creativity.</p>
+            </div>
+        </section>
+        <hr>
+        <section class="thirdSection" id="services">
+            <span class="text-gray">What I offer</span>
+            <h1>Services</h1>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3>Web Development</h3>
+                    <p>Building fast, responsive websites using HTML, CSS, JavaScript, and modern frameworks.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Video Editing</h3>
+                    <p>Producing professional videos with seamless effects, transitions, and storytelling.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Card Design</h3>
+                    <p>Creating bespoke cards for events, businesses, or personal occasions.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Web Design</h3>
+                    <p>Designing intuitive and visually stunning website interfaces.</p>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section class="fourthSection" id="projects">
+            <span class="text-gray">My work</span>
+            <h1>Projects</h1>
+            <div class="project-item">
+                <h3>E-Commerce Platform</h3>
+                <p>Developed a responsive online store with secure payment integration using React.</p>
+            </div>
+            <div class="project-item">
+                <h3>Promotional Video</h3>
+                <p>Edited a dynamic video with motion graphics for a local business using Premiere Pro.</p>
+            </div>
+            <div class="project-item">
+                <h3>Wedding Cards</h3>
+                <p>Designed elegant invitation cards blending typography and minimalist aesthetics.</p>
+            </div>
+        </section>
+        <hr>
+        <section class="fifthSection" id="contact">
+            <span class="text-gray">Get in touch</span>
+            <h1>Contact Me</h1>
+            <div class="contact-form">
+                <form action="#">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 Abhirup. All rights reserved.</p>
+    </footer>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Web Developer', 'Video Editor', 'Card Designer', 'Web Designer'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
+        });
+    </script>
+</body>
+
+</html>
